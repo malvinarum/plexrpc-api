@@ -2,6 +2,8 @@
 
 The official backend service for **[PlexRPC](https://github.com/malvinarum/Plex-Rich-Presence)**.
 
+Please Refer to **[PlexRPC API (Cloudflare Worker)](https://github.com/malvinarum/PlexRPC-API-Cloudflare-Worker)** if you wanna set it up serverless.
+
 This Node.js application acts as a secure middleware between the PlexRPC Windows client and various third-party metadata APIs (Spotify, TMDB, Google Books). Its primary purpose is to secure API keys serverside and provide a unified endpoint for rich metadata.
 
 ## 🚀 Features
