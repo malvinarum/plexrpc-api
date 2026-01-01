@@ -1,5 +1,19 @@
 # PlexRPC API (Node.js)
 
+[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg?style=flat-square)](package.json)
+
+<a href="https://github.com/sponsors/malvinarum">
+  <img src="https://img.shields.io/badge/Sponsor-GitHub-ea4aaa?style=flat-square&logo=github&logoColor=white" alt="Sponsor on GitHub" />
+</a>
+<a href="https://www.patreon.com/malvinarum">
+  <img src="https://img.shields.io/badge/Patreon-Support-f96854?style=flat-square&logo=patreon&logoColor=white" alt="Support on Patreon" />
+</a>
+<a href="https://www.buymeacoffee.com/malvinarum">
+  <img src="https://img.shields.io/badge/Buy_Me_A_Coffee-Donate-FFDD00?style=flat-square&logo=buymeacoffee&logoColor=black" alt="Buy Me A Coffee" />
+</a>
+
+---
+
 The official backend service for **[PlexRPC](https://github.com/malvinarum/Plex-Rich-Presence)**.
 
 This Node.js application acts as a secure middleware between the PlexRPC Windows client and various third-party metadata APIs (Spotify, TMDB, Google Books). It secures API keys server-side, provides a unified endpoint for rich metadata, and enforces client versioning.
