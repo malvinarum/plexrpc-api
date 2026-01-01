@@ -1,6 +1,6 @@
 # PlexRPC API (Node.js)
 
-[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg?style=flat-square)](package.json)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat-square)](LICENSE)
 
 <a href="https://github.com/sponsors/malvinarum">
   <img src="https://img.shields.io/badge/Sponsor-GitHub-ea4aaa?style=flat-square&logo=github&logoColor=white" alt="Sponsor on GitHub" />
@@ -17,7 +17,6 @@
 The official backend service for **[PlexRPC](https://github.com/malvinarum/Plex-Rich-Presence)**.
 
 This Node.js application acts as a secure middleware between the PlexRPC Windows client and various third-party metadata APIs (Spotify, TMDB, Google Books). It secures API keys server-side, provides a unified endpoint for rich metadata, and enforces client versioning.
-
 ## 🚀 Features
 
 * **🎵 Music Metadata:** Authenticates with **Spotify** (Client Credentials Flow) to fetch high-res album art and track links.
