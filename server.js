@@ -99,62 +99,26 @@ app.use((req, res, next) => {
     next();
 });
 
-
-// --- 🎵 SPOTIFY TOKEN MANAGER ---
-let spotifyToken = null;
-let tokenExpiresAt = 0;
-
-async function getSpotifyToken() {
-    if (spotifyToken && Date.now() < tokenExpiresAt - 300000) {
-        return spotifyToken;
-    }
-
-    try {
-        const auth = Buffer.from(`${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`).toString('base64');
-        const params = new URLSearchParams();
-        params.append('grant_type', 'client_credentials');
-
-        const response = await axios.post('https://accounts.spotify.com/api/token', 
-            params, {
-            headers: {
-                'Authorization': `Basic ${auth}`,
-                'Content-Type': 'application/x-www-form-urlencoded'
-            }
-        });
-
-        spotifyToken = response.data.access_token;
-        tokenExpiresAt = Date.now() + (response.data.expires_in * 1000);
-        return spotifyToken;
-    } catch (error) {
-        console.error("Spotify Auth Failed:", error.response?.data || error.message);
-        return null;
-    }
-}
-
-// --- 🎧 ROUTE: MUSIC (Spotify) ---
+// --- 🎧 ROUTE: MUSIC (iTunes) ---
 app.get('/api/metadata/music', async (req, res) => {
     const query = req.query.q;
     if (!query) return res.status(400).json({ error: "No query provided" });
 
     try {
-        const token = await getSpotifyToken();
-        if (!token) return res.status(500).json({ error: "Service unavailable" });
-
-        const response = await axios.get('https://api.spotify.com/v1/search', {
-            params: { q: query, type: 'track', limit: 1 },
-            headers: { 'Authorization': `Bearer ${token}` }
+        const response = await axios.get('https://itunes.apple.com/search', {
+            params: { term: query, entity: 'song', limit: 1 }
         });
 
-        const track = response.data.tracks.items[0];
+        const track = response.data.results[0];
 
         if (track) {
             return res.json({
                 found: true,
-                title: track.name,
-                artist: track.artists[0].name,
-                album: track.album.name,
-                image: track.album.images[0]?.url, 
-                url: track.external_urls.spotify   
+                title: track.trackName,
+                artist: track.artistName,
+                album: track.collectionName,
+                image: track.artworkUrl100?.replace('100x100bb', '600x600bb'), 
+                url: track.trackViewUrl   
             });
         }
         return res.json({ found: false });
