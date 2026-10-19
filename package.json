@@ -1,6 +1,6 @@
 {
   "name": "plexrpc-api",
-  "version": "1.0.0",
+  "version": "2.4.0",
   "description": "Node.js Backend for PlexRPC",
   "main": "server.js",
   "scripts": {
@@ -15,5 +15,8 @@
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.2.1"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }
