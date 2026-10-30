@@ -119,7 +119,7 @@ The server logs only the request path, client app version and the client's rando
 
 ## 📜 License
 
-This project is licensed under the GPL-3.0 license. Feel free to fork, modify, and distribute.
+This project is licensed under the [GPL-3.0 license](LICENSE). Feel free to fork, modify, and distribute it, as long as derivative works are also released as open source under GPL-3.0.
 
 ## Disclaimer
 
